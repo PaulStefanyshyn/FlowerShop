@@ -1,0 +1,143 @@
+body{
+    display: flex;
+    flex-direction: column;
+    height: 97vh;
+}
+
+main{
+    flex: 1;
+}
+
+
+
+.home{
+    height: 97vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.home::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("https://avatars.mds.yandex.net/i?id=6dcafe60567283efa5e94ab3e95b5d444c3044ee-5240048-images-thumbs&n=13") center/cover no-repeat;
+    filter: blur(3px);
+    transform: scale(1.1); /* avoids blur edges */
+    z-index: -1;
+}
+
+.home h1{
+    text-align: center;
+    color: black;
+    font-size: 35px;
+    font-weight: 900;
+    width: 100%;
+}
+
+
+
+.bouquets{
+    padding: 0 15px;
+}
+
+.bouquets h1{
+    text-align: center;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 25px;
+    background-color: #F1C9BF;
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 9 / 10;
+    object-fit: cover;
+    display: block;
+}
+
+.card h1,
+.card h2{
+    margin: 5px;
+    margin-bottom: 15px;
+}
+
+.card p{
+    margin: 0;
+}
+
+.tags{
+    align-self: flex-start;
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;   
+}
+
+.tags p{
+    background-color: white;
+    border-radius: 25px;
+    padding: 5px 15px;
+}
+
+.tags p::before{
+    content: "#";
+}
+
+.card h2{
+    align-self: flex-end;
+}
+
+.card h2::after{
+    content: " zl";
+}
+
+.order-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.counter{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+.counter button{
+    background: transparent;
+    border: transparent;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.counter p{
+    background-color: white;
+    border-radius: 25px;
+    padding: 5px 10px;
+}
+
+.order-button{
+    background: white;
+    border-radius: 10px;
+    border: transparent;
+    font-size: 18px;
+    padding: 5px 15px;
+    cursor: pointer;
+}

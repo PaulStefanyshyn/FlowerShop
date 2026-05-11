@@ -1,0 +1,31 @@
+footer{
+    padding: 15px 10px;
+}
+
+.footer-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.contacts,
+.social-media,
+.map{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 0.2px;
+}
+
+.social-media p,
+.map a{
+    cursor: pointer;
+}
+
+.map a{
+    text-decoration: none;
+    color: black;
+    margin: 16px 0;
+}

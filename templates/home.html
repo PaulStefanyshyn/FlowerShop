@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Clients</title>
+</head>
+<body>
+     {% include('header.html') %}
+
+    <main>
+        <section class="home" id="home">
+            <h1>Your best choise</h1>
+        </section>
+
+        <section class="bouquets" id="bouquets">
+            <h1>Buy the bouquet</h1>
+        
+            <div class="cards">
+                {% for client in clients %}
+
+                <div class="card">
+                    <img src="https://buketland.ua/image/cache/catalog/flowers/buket-tsvetov-faktura-030119-3-800x800.jpg" alt="">
+
+                    <h1>Bouquet name</h1>
+
+                    <div class="tags">
+                        <p>tag1</p>
+                        <p>tag2</p>
+                        <p>tag3</p>
+                        <p>tag4</p>
+                    </div>
+
+                    <h2>189</h2>
+
+                    <div class="order-menu">
+                        <div class="counter">
+                            <button class="minus">-</button>
+                            <p class="count">1</p>
+                            <button class="plus">+</button>
+                        </div>
+                        
+                        <button class="order-button">order the bouquet</button>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+            
+        </section>
+
+        <section class="about" id="about">
+
+        </section>
+    </main>
+
+     {% include('footer.html') %}
+
+     <script src="static/js/home.js"></script>
+</body>
+</html>

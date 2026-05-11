@@ -1,0 +1,23 @@
+header{
+    padding: 15px 10px;
+}
+
+.header-menu{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 15px;
+}
+
+.navbar a{
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
