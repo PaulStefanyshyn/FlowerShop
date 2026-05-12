@@ -1,22 +1,28 @@
-header{
-    padding: 15px 10px;
+header {
+    padding-right: 32px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
 }
 
-.header-menu{
+.header-menu {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.navbar{
+.navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     gap: 15px;
 }
 
-.navbar a{
+.navbar a {
     text-decoration: none;
     cursor: pointer;
     color: black;

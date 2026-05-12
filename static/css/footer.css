@@ -1,8 +1,16 @@
-footer{
-    padding: 15px 10px;
+footer {
+    padding: 15px 32px;
+    background-color: #F1C9BF;
+    font-family: Montserrat;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
 }
 
-.footer-menu{
+
+.footer-menu {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -10,22 +18,39 @@ footer{
 }
 
 .contacts,
-.social-media,
-.map{
+.map {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     line-height: 0.2px;
 }
 
-.social-media p,
-.map a{
+.social-media a,
+.map a {
     cursor: pointer;
 }
 
-.map a{
+.social-media a img {
+    width: 64px;
+    height: 64px;
+    filter: grayscale(100%) brightness(0.2);
+}
+
+.map {
+    align-items: center;
+}
+
+.map a {
     text-decoration: none;
     color: black;
     margin: 16px 0;
+}
+
+.contacts {
+    align-items: flex-end;
+}
+
+footer p {
+    text-align: center;
+    font-size: 10px;
 }

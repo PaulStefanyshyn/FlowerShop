@@ -1,65 +1,96 @@
-body{
+body {
     display: flex;
     flex-direction: column;
     height: 97vh;
+    padding: 0;
+    margin: 0;
+    background-color: #FFF8EA;
+    font-family: Montserrat;
+    letter-spacing: 0%;
+    color: #450000;
 }
 
-main{
+main {
     flex: 1;
 }
 
+section {
+    margin: 30px 0;
+}
 
 
-.home{
+
+.home {
+    margin-top: 0;
     height: 97vh;
     display: flex;
     align-items: center;
     position: relative;
     overflow: hidden;
-    color: white;
 }
 
-.home::before{
+.home::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: url("https://avatars.mds.yandex.net/i?id=6dcafe60567283efa5e94ab3e95b5d444c3044ee-5240048-images-thumbs&n=13") center/cover no-repeat;
-    filter: blur(3px);
-    transform: scale(1.1); /* avoids blur edges */
+    background: url("../img/home.jpg") bottom center/cover no-repeat;
+    filter: blur(5px);
+    transform: scale(1.1);
+    /* avoids blur edges */
     z-index: -1;
 }
 
-.home h1{
+.home::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom,
+            transparent,
+            #FFF8EA);
+}
+
+.home h1 {
+    font-weight: 300;
+    font-style: Light;
+    font-size: 48px;
+    line-height: 100%;
     text-align: center;
-    color: black;
-    font-size: 35px;
-    font-weight: 900;
     width: 100%;
 }
 
 
 
-.bouquets{
+.bouquets {
     padding: 0 15px;
 }
 
-.bouquets h1{
+.bouquets h1 {
     text-align: center;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 27px;
+    line-height: 100%;
 }
 
-.cards{
+.cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
 }
 
-.card{
+.card {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     padding: 25px;
-    background-color: #F1C9BF;
+    background:
+        linear-gradient(#A6747466,
+            #A6747466),
+        url("../img/card.png") bottom center/cover no-repeat;
 }
 
 .card img {
@@ -67,45 +98,65 @@ main{
     aspect-ratio: 9 / 10;
     object-fit: cover;
     display: block;
+    padding: 15px 30px;
+    box-sizing: border-box;
 }
 
 .card h1,
-.card h2{
+.card h2 {
     margin: 5px;
     margin-bottom: 15px;
 }
 
-.card p{
+.card h1 {
+    font-weight: 200;
+    font-style: ExtraLight;
+    font-size: 22px;
+    line-height: 100%;
+    align-self: flex-start;
+}
+
+.card p {
     margin: 0;
 }
 
-.tags{
+.tags {
     align-self: flex-start;
     width: 50%;
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;   
+    gap: 5px;
 }
 
-.tags p{
+.tags p {
     background-color: white;
     border-radius: 25px;
     padding: 5px 15px;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 11px;
+    line-height: 100%;
+    letter-spacing: 0%;
+
 }
 
-.tags p::before{
+.tags p::before {
     content: "#";
 }
 
-.card h2{
+.card h2 {
     align-self: flex-end;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 24px;
+    line-height: 100%;
 }
 
-.card h2::after{
-    content: " zl";
+.card h2::after {
+    content: " zł";
 }
 
-.order-menu{
+.order-menu {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -113,31 +164,149 @@ main{
     width: 100%;
 }
 
-.counter{
+.counter {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 5px;
 }
 
-.counter button{
+.counter button {
     background: transparent;
     border: transparent;
     cursor: pointer;
     font-size: 18px;
 }
 
-.counter p{
+.counter p {
     background-color: white;
     border-radius: 25px;
     padding: 5px 10px;
 }
 
-.order-button{
+.order-button {
     background: white;
     border-radius: 10px;
     border: transparent;
-    font-size: 18px;
     padding: 5px 15px;
     cursor: pointer;
+    font-weight: 200;
+    font-style: ExtraLight;
+    font-size: 16px;
+    line-height: 100%;
+}
+
+.about {
+    background-color: #F1C9BF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.about::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to top,
+            transparent,
+            #FFF8EA);
+}
+
+.about h1 {
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 27px;
+    line-height: 100%;
+    text-align: center;
+    z-index: 1;
+}
+
+.about img {
+    padding: 10px 95px;
+    width: 50%;
+    height: 90vh;
+    aspect-ratio: 7 / 10;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    box-sizing: border-box;
+}
+
+.about p {
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 15px;
+    line-height: 100%;
+    width: 50%;
+}
+
+
+
+
+
+.delivery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: flex-start;
+}
+
+.delivery h1 {
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 27px;
+    line-height: 100%;
+}
+
+.proposes {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
+}
+
+.propos {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.propos h2 {
+    margin-top: 0;
+    font-weight: 800;
+    font-style: ExtraBold;
+    font-size: 15px;
+    line-height: 100%;
+}
+
+.propos p {
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 15px;
+    line-height: 100%;
+}
+
+.propos img {
+    width: 64px;
+    height: 64px;
+    margin-right: 15px;
+}
+
+.comment {
+    padding: 10px 25px;
+    background-color: #F1C9BF;
+    border-radius: 25px;
+    margin-top: auto;
+}
+
+.comment p {
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 15px;
+    line-height: 100%;
 }
