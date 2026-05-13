@@ -1,23 +1,131 @@
-header{
-    padding: 15px 10px;
+header {
+    padding-right: 32px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1;
 }
 
-.header-menu{
+.header-menu {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.navbar{
+.navbar {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    gap: 15px;
+    gap: 20px;
 }
 
-.navbar a{
+.navbar a {
     text-decoration: none;
     cursor: pointer;
-    color: black;
+    font-size: 22px;
+}
+
+.burger {
+    width: 35px;
+    height: 28px;
+
+    display: none;
+
+    flex-direction: column;
+    justify-content: space-between;
+
+    cursor: pointer;
+
+    z-index: 1001;
+}
+
+.burger span {
+    width: 100%;
+    height: 1px;
+
+    background: rgb(117, 117, 117);
+
+    border-radius: 10px;
+
+    transition: 0.3s;
+}
+
+.burger.active span:nth-child(1) {
+    transform: translateY(12px) rotate(45deg);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    transform: translateY(-12px) rotate(-45deg);
+}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.4);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s;
+
+    z-index: 998;
+}
+
+@media (max-width: 768px) {
+    .navbar a {
+        font-size: 18px;
+        color: white;
+        font-weight: 800;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .burger.active span {
+        background: white;
+    }
+
+    .navbar {
+        position: fixed;
+        justify-content: flex-start;
+        align-items: center;
+        top: 0;
+        right: -100%;
+
+        width: 100%;
+        height: 100vh;
+
+        padding-top: 35%;
+
+        flex-direction: column;
+
+
+        transition: 0.4s ease;
+
+        z-index: 999;
+    }
+
+    .navbar.active {
+        right: 0;
+    }
+
+    .overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    body.no-scroll {
+        overflow: hidden;
+        height: 100vh;
+        touch-action: none;
+    }
 }

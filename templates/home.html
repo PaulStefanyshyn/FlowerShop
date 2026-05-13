@@ -1,35 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="static/css/style.css">
     <title>Clients</title>
 </head>
+
 <body>
-     {% include('header.html') %}
+    {% include('header.html') %}
 
     <main>
         <section class="home" id="home">
-            <h1>Your best choise</h1>
+            <h1>Kwiaty załatwią sprawę</h1>
         </section>
 
         <section class="bouquets" id="bouquets">
-            <h1>Buy the bouquet</h1>
-        
+            <h1>Kup bukiet</h1>
+
             <div class="cards">
                 {% for client in clients %}
 
                 <div class="card">
-                    <img src="https://buketland.ua/image/cache/catalog/flowers/buket-tsvetov-faktura-030119-3-800x800.jpg" alt="">
+                    <img src="https://buketland.ua/image/cache/catalog/flowers/buket-tsvetov-faktura-030119-3-800x800.jpg"
+                        alt="">
 
-                    <h1>Bouquet name</h1>
+                    <h1>Różana Harmonia</h1>
 
                     <div class="tags">
-                        <p>tag1</p>
-                        <p>tag2</p>
-                        <p>tag3</p>
-                        <p>tag4</p>
+                        <p>Urodziny</p>
+                        <p>Dla Mamy</p>
+                        <p>Po Prostu</p>
+                        <p>Rocznica</p>
                     </div>
 
                     <h2>189</h2>
@@ -40,23 +43,88 @@
                             <p class="count">1</p>
                             <button class="plus">+</button>
                         </div>
-                        
-                        <button class="order-button">order the bouquet</button>
+
+                        <button class="order-button">zamówienie</button>
                     </div>
                 </div>
 
                 {% endfor %}
             </div>
-            
+
         </section>
 
         <section class="about" id="about">
+            <h1>O nas</h1>
 
+            <img src="static/img/about.jpg" alt="">
+
+            <p>Wierzymy, że kwiaty potrafią mówić więcej niż słowa.</p>
+
+            <p>Dlatego tworzymy bukiety, które wyrażają emocje — od radości i
+                wdzięczności po miłość i troskę. Każda kompozycja powstaje z
+                dbałością o detale, świeżość i estetykę.</p>
+
+            <p>Łączymy klasyczną elegancję z nowoczesnym stylem, aby nasze
+                bukiety pasowały do każdej okazji — i bez okazji też. Jesteśmy
+                pracownią kwiatową w Łodzi, gdzie liczy się nie tylko wygląd,
+                ale i uczucie, które stoi za każdym zamówieniem.</p>
+
+            <p>Dbamy o to, aby każdy bukiet był wyjątkowy i dostarczony
+                na czas. Tworzymy kwiaty, które zostają w pamięci.</p>
+
+        </section>
+
+        <section class="delivery" id="delivery">
+            <h1>Dostawa i płatność</h1>
+
+            <div class="proposes">
+                <div class="propos">
+                    <img src="static/img/sun.png" alt="">
+
+                    <div class="description">
+                        <h2>Dostawa dzienna</h2>
+
+                        <p>dostawa – 50 zl</p>
+
+                        <p>przy zamówieniu w godzinach 8:00–22:00 na kwotę do 150 zl</p>
+                    </div>
+                </div>
+
+                <div class="propos">
+                    <img src="static/img/clock.png" alt="">
+
+                    <div class="description">
+                        <h2>Dostawa o dokładnej godzinie</h2>
+
+                        <p>dostawa – 70 zl</p>
+
+                        <p>dla dowolnej kwoty</p>
+                    </div>
+                </div>
+
+                <div class="propos">
+                    <img src="static/img/car.png" alt="">
+
+                    <div class="description">
+                        <h2>Dostawa</h2>
+
+                        <p>dostawa – bezpłatna</p>
+
+                        <p>przy zamówieniu na kwotę od 150 zl</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment">
+                <p>Jeśli potrzebujesz pilnej dostawy – skontaktuj się z naszymi
+                    menedżerami, na pewno pomogą!</p>
+            </div>
         </section>
     </main>
 
-     {% include('footer.html') %}
+    {% include('footer.html') %}
 
-     <script src="static/js/home.js"></script>
+    <script src="static/js/home.js"></script>
 </body>
+
 </html>
