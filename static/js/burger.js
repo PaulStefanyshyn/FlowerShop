@@ -17,7 +17,7 @@ burger.addEventListener('click', () => {
     document.body.classList.toggle('no-scroll');
 });
 
-overlay.addEventListener('click', closeMenu);
+navbar.addEventListener('click', closeMenu);
 
 links.forEach(link => {
     link.addEventListener('click', closeMenu);

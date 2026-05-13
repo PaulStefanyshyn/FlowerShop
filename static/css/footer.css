@@ -8,10 +8,9 @@ footer p {
     font-size: 10px;
 }
 
-.footer-menu {
+.footer-home {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
     align-items: flex-start;
     gap: 15px;
 }
@@ -20,7 +19,6 @@ footer p {
 .map {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     line-height: 0.2px;
 }
 
@@ -37,7 +35,11 @@ footer p {
 }
 
 .map {
-    align-items: center;
+    align-items: flex-end;
+}
+
+.contacts{
+    align-items: flex-start;
 }
 
 .map a,
@@ -46,20 +48,27 @@ footer p {
     font-size: 16px;
 }
 
-.contacts {
-    align-items: flex-end;
-}
-
 
 
 @media (max-width: 768px) {
-    .footer-menu {
+    .footer-home {
         grid-template-columns: repeat(1, 1fr);
+        grid-template-areas:
+            "map"
+            "contacts";
     }
 
     .social-media a img {
         width: 32px;
         height: 32px;
+    }
+
+    .map{
+        grid-area: map;
+    }
+
+    .contacts{
+        grid-area: contacts;
     }
 
     .map a,
