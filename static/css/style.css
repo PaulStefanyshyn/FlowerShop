@@ -10,6 +10,19 @@ body {
     color: #450000;
 }
 
+a,
+h1,
+h1,
+p,
+li {
+    font-family: Montserrat;
+    font-weight: 400;
+    font-style: Regular;
+    letter-spacing: 0%;
+    line-height: 100%;
+    color: #450000;
+}
+
 main {
     flex: 1;
 }
@@ -18,6 +31,9 @@ section {
     margin: 30px 0;
 }
 
+section h1 {
+    font-size: 48px;
+}
 
 
 .home {
@@ -63,7 +79,8 @@ section {
 
 
 
-.bouquets {
+.bouquets,
+.delivery {
     padding: 0 15px;
 }
 
@@ -71,14 +88,14 @@ section {
     text-align: center;
     font-weight: 400;
     font-style: Regular;
-    font-size: 27px;
+    font-size: 30px;
     line-height: 100%;
 }
 
 .cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    gap: 30px;
 }
 
 .card {
@@ -111,7 +128,7 @@ section {
 .card h1 {
     font-weight: 200;
     font-style: ExtraLight;
-    font-size: 22px;
+    font-size: 27px;
     line-height: 100%;
     align-self: flex-start;
 }
@@ -134,10 +151,9 @@ section {
     padding: 5px 15px;
     font-weight: 300;
     font-style: Light;
-    font-size: 11px;
+    font-size: 16px;
     line-height: 100%;
     letter-spacing: 0%;
-
 }
 
 .tags p::before {
@@ -148,7 +164,7 @@ section {
     align-self: flex-end;
     font-weight: 300;
     font-style: Light;
-    font-size: 24px;
+    font-size: 28px;
     line-height: 100%;
 }
 
@@ -175,13 +191,16 @@ section {
     background: transparent;
     border: transparent;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 24px;
+    color: #450000;
 }
 
 .counter p {
     background-color: white;
     border-radius: 25px;
     padding: 5px 10px;
+    color: #450000;
+    font-size: 22px;
 }
 
 .order-button {
@@ -192,8 +211,9 @@ section {
     cursor: pointer;
     font-weight: 200;
     font-style: ExtraLight;
-    font-size: 16px;
+    font-size: 22px;
     line-height: 100%;
+    color: #450000;
 }
 
 .about {
@@ -219,7 +239,6 @@ section {
 .about h1 {
     font-weight: 400;
     font-style: Regular;
-    font-size: 27px;
     line-height: 100%;
     text-align: center;
     z-index: 1;
@@ -227,7 +246,7 @@ section {
 
 .about img {
     padding: 10px 95px;
-    width: 50%;
+    width: 60%;
     height: 90vh;
     aspect-ratio: 7 / 10;
     object-fit: cover;
@@ -239,7 +258,7 @@ section {
 .about p {
     font-weight: 400;
     font-style: Regular;
-    font-size: 15px;
+    font-size: 22px;
     line-height: 100%;
     width: 50%;
 }
@@ -252,14 +271,13 @@ section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    height: 120vh;
     justify-content: flex-start;
 }
 
 .delivery h1 {
     font-weight: 400;
     font-style: Regular;
-    font-size: 27px;
     line-height: 100%;
 }
 
@@ -276,19 +294,21 @@ section {
     align-items: flex-start;
 }
 
+.propos h2,
+.propos p {
+    font-size: 22px;
+    line-height: 100%;
+}
+
 .propos h2 {
     margin-top: 0;
     font-weight: 800;
     font-style: ExtraBold;
-    font-size: 15px;
-    line-height: 100%;
 }
 
 .propos p {
     font-weight: 400;
     font-style: Regular;
-    font-size: 15px;
-    line-height: 100%;
 }
 
 .propos img {
@@ -307,6 +327,78 @@ section {
 .comment p {
     font-weight: 400;
     font-style: Regular;
-    font-size: 15px;
+    font-size: 22px;
     line-height: 100%;
+}
+
+
+
+@media (max-width: 768px) {
+    section h1 {
+        font-size: 27px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 50px;
+    }
+
+    .card img {
+        padding: 0 5px;
+        aspect-ratio: 9 / 13;
+
+    }
+
+    .card h1 {
+        font-size: 22px;
+        margin-top: 15px;
+    }
+
+    .tags {
+        width: 70%;
+    }
+
+    .tags p {
+        font-size: 11px;
+    }
+
+    .card h2 {
+        font-size: 24px;
+    }
+
+    .counter button {
+        font-size: 18px;
+    }
+
+    .counter p {
+        font-size: 14px;
+    }
+
+    .order-button {
+        font-size: 16px;
+    }
+
+    .about p {
+        font-size: 15px;
+        width: 70%;
+    }
+
+    .about img {
+        width: 90%;
+        height: 70vh;
+        padding: 10px 45px;
+    }
+
+    .delivery {
+        height: 80vh;
+    }
+
+    .propos h2,
+    .propos p {
+        font-size: 15px;
+    }
+
+    .comment p {
+        font-size: 15px;
+    }
 }

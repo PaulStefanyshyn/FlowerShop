@@ -1,20 +1,19 @@
 footer {
     padding: 15px 32px;
     background-color: #F1C9BF;
-    font-family: Montserrat;
-    font-weight: 400;
-    font-style: Regular;
-    font-size: 14px;
-    line-height: 100%;
-    letter-spacing: 0%;
 }
 
+footer p {
+    text-align: center;
+    font-size: 10px;
+}
 
 .footer-menu {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
     align-items: flex-start;
+    gap: 15px;
 }
 
 .contacts,
@@ -28,11 +27,12 @@ footer {
 .social-media a,
 .map a {
     cursor: pointer;
+    text-decoration: none;
 }
 
 .social-media a img {
-    width: 64px;
-    height: 64px;
+    width: 48px;
+    height: 48px;
     filter: grayscale(100%) brightness(0.2);
 }
 
@@ -40,17 +40,35 @@ footer {
     align-items: center;
 }
 
-.map a {
-    text-decoration: none;
-    color: black;
-    margin: 16px 0;
+.map a,
+.contacts p {
+    margin: 10px 0;
+    font-size: 16px;
 }
 
 .contacts {
     align-items: flex-end;
 }
 
-footer p {
-    text-align: center;
-    font-size: 10px;
+
+
+@media (max-width: 768px) {
+    .footer-menu {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .social-media a img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .map a,
+    .contacts p {
+        font-size: 14px;
+    }
+
+    .map,
+    .contacts {
+        align-items: flex-start;
+    }
 }
