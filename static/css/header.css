@@ -87,7 +87,7 @@ header {
     z-index: 998;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .logo svg {
         width: 8rem;
     }

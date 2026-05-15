@@ -386,9 +386,14 @@ section h1 {
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     section h1 {
         font-size: 27px;
+    }
+
+    .cards> :nth-child(odd),
+    .cards> :nth-child(even) {
+        justify-self: center;
     }
 
     .cards {
@@ -396,15 +401,11 @@ section h1 {
         gap: 50px;
     }
 
-    .cards>* {
-        justify-self: center;
-    }
-
     .card img {
         padding: 0 5px;
         /* aspect-ratio: 9 / 13; */
-        width: 300px;
-        height: 400px;
+        max-width: 250px;
+        max-height: 350px;
     }
 
     .card h1 {
@@ -461,6 +462,7 @@ section h1 {
     .about-home img {
         width: 80%;
         height: 60vh;
+        max-width: 450px;
     }
 
     .delivery {

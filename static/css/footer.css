@@ -56,7 +56,11 @@ footer p {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
+    footer {
+        padding: 15px 32px;
+    }
+
     footer p {
         font-size: 10px;
     }
