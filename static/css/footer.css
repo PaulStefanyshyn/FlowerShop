@@ -1,11 +1,11 @@
 footer {
-    padding: 15px 32px;
-    background-color: #F1C9BF;
+    padding: 15px 64px;
+    background-color: #FFE6E2;
 }
 
 footer p {
     text-align: center;
-    font-size: 10px;
+    font-size: 20px;
 }
 
 .footer-home {
@@ -13,6 +13,7 @@ footer p {
     grid-template-columns: repeat(2, 1fr);
     align-items: flex-start;
     gap: 15px;
+    margin-top: 15px;
 }
 
 .contacts,
@@ -38,19 +39,28 @@ footer p {
     align-items: flex-end;
 }
 
-.contacts{
+.contacts {
     align-items: flex-start;
 }
 
 .map a,
 .contacts p {
     margin: 10px 0;
-    font-size: 16px;
+    font-size: 20px;
+}
+
+.map h2,
+.contacts h2 {
+    font-size: 20px;
+    font-weight: 700;
 }
 
 
-
 @media (max-width: 768px) {
+    footer p {
+        font-size: 10px;
+    }
+
     .footer-home {
         grid-template-columns: repeat(1, 1fr);
         grid-template-areas:
@@ -63,17 +73,22 @@ footer p {
         height: 32px;
     }
 
-    .map{
+    .map {
         grid-area: map;
     }
 
-    .contacts{
+    .contacts {
         grid-area: contacts;
     }
 
     .map a,
     .contacts p {
         font-size: 14px;
+    }
+
+    .map h2,
+    .contacts h2 {
+        display: none;
     }
 
     .map,

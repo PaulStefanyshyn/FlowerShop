@@ -6,7 +6,6 @@ header {
     width: 100%;
     box-sizing: border-box;
     z-index: 1;
-    font-family: 'Montserrat Thin';
 }
 
 .header-menu {
@@ -33,6 +32,8 @@ header {
     text-decoration: none;
     cursor: pointer;
     font-size: 28px;
+    font-family: 'Montserrat';
+    font-weight: 300;
 }
 
 .burger {
@@ -117,7 +118,7 @@ header {
         height: 100vh;
 
         padding-top: 35%;
-        
+
 
         flex-direction: column;
 
