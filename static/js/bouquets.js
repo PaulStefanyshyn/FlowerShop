@@ -1,6 +1,10 @@
 const slides = document.querySelectorAll('.main-slide');
 const previews = document.querySelectorAll('.preview');
 
+document.addEventListener('DOMContentLoaded', () => {
+    currentSlide(0);
+});
+
 function currentSlide(index) {
 
     slides.forEach(slide => {

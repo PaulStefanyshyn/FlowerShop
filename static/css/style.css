@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -40,6 +44,7 @@ section h1 {
     margin-top: 0;
     height: 97vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -69,15 +74,42 @@ section h1 {
             #FFF8EA);
 }
 
-.home h1 {
+.home h1,
+.home h2 {
     font-style: Light;
-    font-size: 48px;
     line-height: 100%;
     text-align: center;
     width: 100%;
-    inline-size: min-content;
     font-family: 'Montserrat';
+}
+
+.home h1 {
+    font-size: 48px;
+    inline-size: min-content;
     font-weight: 300;
+}
+
+.home h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    position: relative;
+    margin-top: 0;
+    font-weight: 200;
+}
+
+.home h2::after {
+    content: "";
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%);
+
+    bottom: -5px;
+
+    width: 30%;
+    height: 1px;
+
+    background: #450000;
 }
 
 
@@ -395,6 +427,14 @@ section h1 {
 @media (max-width: 800px) {
     section h1 {
         font-size: 27px;
+    }
+
+    .home h2 {
+        font-size: 27px;
+    }
+
+    .home h2::after {
+        width: 60%;
     }
 
     .cards> :nth-child(odd),

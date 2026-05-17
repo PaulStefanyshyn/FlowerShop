@@ -17,7 +17,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 import os 
 
-
+from PIL import Image as PILImage
 
 
 app = Flask(__name__)
@@ -110,10 +110,11 @@ def add_flower():
         files = request.files.getlist('images')
         for file in files:
             if file and allowed_file(file.filename):
-                ext = file.filename.rsplit('.', 1)[1].lower()
-                filename = f"{uuid.uuid4().hex}.{ext}"
+                img = PILImage.open(file)
+                img.thumbnail((1200, 1200))
+                filename = f"{uuid.uuid4().hex}.webp"
                 filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                file.save(filepath)
+                img.save(filepath, "WEBP", quality=85, optimize=True)
                 img_path = f"uploads/{filename}"
                 image = Image(imgPath=img_path, flower_id=flower.id)
                 db.session.add(image)

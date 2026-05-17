@@ -20,6 +20,7 @@
     <main>
         <section class="home" id="home">
             <h1>Kwiaty załatwią sprawę</h1>
+            <h2>Flowers Bar</h2>
         </section>
 
         <section class="bouquets" id="bouquets">
@@ -29,7 +30,7 @@
                 {% for flower in data %}
 
                 <div class="card">
-                    <img src="{{ url_for('static', filename='uploads/' + flower.photo.split('/')[-1]) }}">
+                    <img loading="lazy" src="{{ url_for('static', filename='uploads/' + flower.photo.split('/')[-1]) }}">
 
                     <h1>{{flower.name}}</h1>
 
@@ -61,7 +62,7 @@
             <h1>O nas</h1>
 
             <div class="about-home">
-                <img src="static/img/about.jpg" alt="">
+                <img loading="lazy" src="static/img/about.jpg" alt="">
 
                 <div class="about-text">
                     <p>Wierzymy, że kwiaty potrafią mówić więcej niż słowa.</p>
@@ -88,7 +89,7 @@
             <div class="delivery-home">
                 <div class="proposes">
                     <div class="propos">
-                        <img src="static/img/sun.png" alt="">
+                        <img loading="lazy" src="static/img/sun.png" alt="">
 
                         <div class="description">
                             <h2>Dostawa dzienna</h2>
@@ -100,7 +101,7 @@
                     </div>
 
                     <div class="propos">
-                        <img src="static/img/clock.png" alt="">
+                        <img loading="lazy" src="static/img/clock.png" alt="">
 
                         <div class="description">
                             <h2>Dostawa o dokładnej godzinie</h2>
@@ -112,7 +113,7 @@
                     </div>
 
                     <div class="propos">
-                        <img src="static/img/car.png" alt="">
+                        <img loading="lazy" src="static/img/car.png" alt="">
 
                         <div class="description">
                             <h2>Dostawa</h2>
