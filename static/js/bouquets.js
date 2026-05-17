@@ -47,6 +47,8 @@ btn.addEventListener('click', async function (e) {
     const count = document.querySelector('.count').textContent;
     const price = document.querySelector('.price').textContent;
 
+    if (!user || !phone) return;
+
     btn.disabled = true;
     btn.style.background = "#ccc";
     btn.style.color = "#666";
@@ -75,8 +77,54 @@ btn.addEventListener('click', async function (e) {
         msg.style.marginTop = "10px";
 
         if (result.success) {
-            msg.textContent = 'Zamówienie zostało złożone! Skontaktujemy się z Państwem w ciągu 10 minut ';
-            msg.style.color = 'green';
+
+            const overlay = document.createElement('div');
+            overlay.style.position = 'fixed';
+            overlay.style.top = '0';
+            overlay.style.left = '0';
+            overlay.style.width = '100%';
+            overlay.style.height = '100%';
+            overlay.style.background = 'rgba(0,0,0,0.6)';
+            overlay.style.backdropFilter = 'blur(5px)';
+            overlay.style.zIndex = '999';
+
+            const modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '50%';
+            modal.style.left = '50%';
+            modal.style.transform = 'translate(-50%, -50%)';
+            modal.style.background = '#fff';
+            modal.style.padding = '30px 40px';
+            modal.style.borderRadius = '15px';
+            modal.style.zIndex = '1000';
+            modal.style.textAlign = 'center';
+            modal.style.fontSize = '18px';
+            modal.style.color = 'green';
+            modal.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
+            modal.style.opacity = '0';
+            modal.style.transition = '0.3s';
+
+            modal.textContent =
+                'Zamówienie zostało złożone! Skontaktujemy się z Państwem w ciągu 10 minut';
+
+            document.body.appendChild(overlay);
+            document.body.appendChild(modal);
+
+            setTimeout(() => modal.style.opacity = '1', 10);
+
+            let timeout = setTimeout(() => {
+                overlay.remove();
+                modal.remove();
+                window.location.href = "/";
+            }, 20000);
+
+            // якщо клікнули — теж закриваємо, але без конфлікту з таймером
+            overlay.addEventListener('click', () => {
+                clearTimeout(timeout); // 🔥 важливо
+                overlay.remove();
+                modal.remove();
+                window.location.href = "/";
+            });
         } else {
             msg.textContent = 'Błąd zamówienia!';
             msg.style.color = 'red';
