@@ -114,7 +114,7 @@ def add_flower():
                 img.thumbnail((1080, 720))
                 filename = f"{uuid.uuid4().hex}.webp"
                 filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                img.save(filepath, "WEBP", quality=70, optimize=True)
+                img.save(filepath, "WEBP", quality=80, optimize=True)
                 img_path = f"uploads/{filename}"
                 image = Image(imgPath=img_path, flower_id=flower.id)
                 db.session.add(image)
@@ -145,11 +145,11 @@ def edit_flower(flower_id):
                 img.thumbnail((1080, 720))
                 filename = f"{uuid.uuid4().hex}.webp"
                 filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                img.save(filepath, "WEBP", quality=70, optimize=True)
+                img.save(filepath, "WEBP", quality=80, optimize=True)
                 img_path = f"uploads/{filename}"
                 image = Image(imgPath=img_path, flower_id=flower.id)
                 db.session.add(image)
-                
+
         db.session.commit()
         flash('SuperDupeeer))', 'success')
         return redirect(url_for('admin_index'))
@@ -267,6 +267,12 @@ def save_order():
         "user": data.get("user"),
         "phone": data.get("phone")
     }
+    try:
+        new_client = Client(name = data.get("user"), number = data.get("phone"), bouquet = data.get("name"), order_count = int(data.get("count")))
+        db.session.add(new_client)
+        db.session.commit()
+    except Exception as e:
+        print(e)
 
     return jsonify({"success": True})
 

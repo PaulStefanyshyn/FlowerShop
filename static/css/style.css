@@ -161,6 +161,7 @@ section h1 {
     width: 350px;
     height: 450px;
     object-fit: cover;
+    object-position: center;
     display: block;
     padding: 15px 30px;
     box-sizing: border-box;
