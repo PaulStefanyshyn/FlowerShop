@@ -111,10 +111,10 @@ def add_flower():
         for file in files:
             if file and allowed_file(file.filename):
                 img = PILImage.open(file)
-                img.thumbnail((1200, 1200))
+                img.thumbnail((1080, 720))
                 filename = f"{uuid.uuid4().hex}.webp"
                 filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                img.save(filepath, "WEBP", quality=85, optimize=True)
+                img.save(filepath, "WEBP", quality=70, optimize=True)
                 img_path = f"uploads/{filename}"
                 image = Image(imgPath=img_path, flower_id=flower.id)
                 db.session.add(image)
@@ -141,14 +141,15 @@ def edit_flower(flower_id):
         files = request.files.getlist('new_images')
         for file in files:
             if file and allowed_file(file.filename):
-                ext = file.filename.rsplit('.', 1)[1].lower()
-                filename = f"{uuid.uuid4().hex}.{ext}"
+                img = PILImage.open(file)
+                img.thumbnail((1080, 720))
+                filename = f"{uuid.uuid4().hex}.webp"
                 filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                file.save(filepath)
+                img.save(filepath, "WEBP", quality=70, optimize=True)
                 img_path = f"uploads/{filename}"
                 image = Image(imgPath=img_path, flower_id=flower.id)
                 db.session.add(image)
-        
+                
         db.session.commit()
         flash('SuperDupeeer))', 'success')
         return redirect(url_for('admin_index'))
