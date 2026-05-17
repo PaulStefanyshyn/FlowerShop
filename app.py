@@ -206,12 +206,26 @@ def uploaded_file(filename):
 
 @app.route("/")
 def index():
-    clients = Client.query.all()
-    print(clients)
+    bouquets = Flower.query.all()
+    data = []
+    print(bouquets)
+    print(type(bouquets))
+    for i in bouquets:
+        img = Image.query.filter_by(flower_id=i.id).first()
+        
+        data.append({
+            'name' : i.name,
+            'tags' : i.tags.split(', ') if i.tags else [],
+            'photo' : img.imgPath if img else None,
+            'price' : i.price,
+            'description' : i.description
+        })
+        
+    print(data)
 
     return render_template(
         "home.html",
-        clients=clients
+        data=data
     )
 
 
@@ -261,6 +275,18 @@ def save_order():
 @app.route("/bouquets")
 def bouquets():
     product = session.get("product")
+
+    if not product:
+        return "No product in session", 400
+
+    flower = Flower.query.filter_by(name=product["name"]).first()
+
+    if not flower:
+        return "Flower not found", 404
+
+    images = Image.query.filter_by(flower_id=flower.id).all()
+
+    product["img"] = [img.imgPath for img in images]
 
     return render_template("bouquets.html", product=product)
 

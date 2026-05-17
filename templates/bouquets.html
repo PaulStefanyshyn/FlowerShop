@@ -30,20 +30,17 @@
             <section class="gallery">
 
                 <div class="gallery-main">
-                    <img class="main-slide active" src="{{ product.img }}" alt="">
-
-                    <img class="main-slide" src="{{ product.img }}" alt="">
-
-                    <img class="main-slide" src="{{ product.img }}" alt="">
+                    {%for image in product.img%}
+                        <img class="main-slide active" src="{{ url_for('static', filename='uploads/' + image.split('/')[-1]) }}" alt="">
+                    {% endfor %}
                 </div>
 
                 <div class="gallery-preview">
-
-                    <img class="preview active" src="{{ product.img }}" onclick="currentSlide(0)" alt="">
-
-                    <img class="preview" src="{{ product.img }}" onclick="currentSlide(1)" alt="">
-
-                    <img class="preview" src="{{ product.img }}" onclick="currentSlide(2)" alt="">
+                    {% for image in product.img %}
+                        <img class="preview" 
+                            src="{{ url_for('static', filename='uploads/' + image.split('/')[-1]) }}"
+                            onclick="currentSlide({{ loop.index0 }})">
+                    {% endfor %}
                 </div>
 
             </section>

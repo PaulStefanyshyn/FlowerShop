@@ -26,22 +26,20 @@
             <h1>Kup bukiet</h1>
 
             <div class="cards">
-                {% for client in clients %}
+                {% for flower in data %}
 
                 <div class="card">
-                    <img src="https://buketland.ua/image/cache/catalog/flowers/buket-tsvetov-faktura-030119-3-800x800.jpg"
-                        alt="">
+                    <img src="{{ url_for('static', filename='uploads/' + flower.photo.split('/')[-1]) }}">
 
-                    <h1>Różana Harmonia</h1>
+                    <h1>{{flower.name}}</h1>
 
                     <div class="tags">
-                        <p>Urodziny</p>
-                        <p>Dla Mamy</p>
-                        <p>Po Prostu</p>
-                        <p>Rocznica</p>
+                        {% for i in flower.tags %}
+                            <p>{{i}}</p>
+                        {% endfor %}
                     </div>
 
-                    <h2>189</h2>
+                    <h2>{{flower.price}}</h2>
 
                     <div class="order-menu">
                         <div class="counter">
