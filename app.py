@@ -47,7 +47,9 @@ def save_data():
     session["product"] = {
         "name": data.get("name"),
         "price": data.get("price"),
-        "count": data.get("count")
+        "count": data.get("count"),
+        "img": data.get("img"),
+        "tags": data.get("tags")
     }
 
     return jsonify({"success": True})
@@ -63,5 +65,5 @@ def bouquets():
 if __name__ == "__main__":
     app.run(
         debug=True,
-        host="10.208.177.12"
+        host="192.168.0.102"
     )

@@ -1,19 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Отримані дані</h1>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    {% if product %}
-    <p>Назва: {{ product.name }}</p>
-    <p>Вартість: {{ product.price }}</p>
-    <p>Кількість: {{ product.count }}</p>
-    {% else %}
-    <p>Дані не передані</p>
-    {% endif %}
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="static/css/bouquets.css">
+
+    <title>Bouquet</title>
+
+    <style>
+        header {
+            background: #FFE6E2;
+        }
+    </style>
+</head>
+
+<body>
+    {% include('header.html') %}
+
+    <main>
+        <section class="bouquets">
+            {% if product %}
+            <section class="gallery">
+
+                <div class="gallery-main">
+                    <img class="main-slide active" src="{{ product.img }}" alt="">
+
+                    <img class="main-slide" src="{{ product.img }}" alt="">
+
+                    <img class="main-slide" src="{{ product.img }}" alt="">
+                </div>
+
+                <div class="gallery-preview">
+
+                    <img class="preview active" src="{{ product.img }}" onclick="currentSlide(0)" alt="">
+
+                    <img class="preview" src="{{ product.img }}" onclick="currentSlide(1)" alt="">
+
+                    <img class="preview" src="{{ product.img }}" onclick="currentSlide(2)" alt="">
+                </div>
+
+            </section>
+
+            <section class="description">
+                <h1>Tytuł: {{ product.name }}</h1>
+
+                <div class="tags">
+                    {% for tag in product.tags %}
+                    <p>{{ tag }}</p>
+                    {% endfor %}
+                </div>
+
+                <div class="counter">
+                    <button class="minus">-</button>
+                    <p class="count">{{ product.count }}</p>
+                    <button class="plus">+</button>
+                </div>
+                <p class="price">{{ product.price }}</p>
+
+                <form action="/" method="POST" class="contact-form">
+                    <input type="text" name="name" placeholder="Twoje imię" required>
+                    <input type="tel" name="phone" placeholder="Numer telefonu" required>
+                    <button type="submit" class="btn-submit">Złóż zamówienie</button>
+                </form>
+            </section>
+
+            {% else %}
+            <p>Dane nie zostały przekazane</p>
+            {% endif %}
+        </section>
+
+    </main>
+
+
+    {% include('footer.html') %}
+
+    <script src="static/js/bouquets.js"></script>
+
 </body>
+
 </html>
