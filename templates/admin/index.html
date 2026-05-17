@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Керування букетами</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <span class="navbar-brand">FlowerBar Адмінка</span>
+        <div>
+            <a href="{{ url_for('add_flower') }}" class="btn btn-success me-2">+ Новий букет</a>
+            <a href="{{ url_for('logout') }}" class="btn btn-outline-light">Вийти</a>
+        </div>
+    </div>
+</nav>
+<div class="container mt-4">
+    <h2>Всі букети</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for cat, msg in messages %}
+                <div class="alert alert-{{ cat }}">{{ msg }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    <div class="row">
+        {% for flower in flowers %}
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                {% if flower.images %}
+                    <img src="{{ url_for('static', filename=flower.images[0].imgPath) }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                {% else %}
+                    <div class="card-img-top bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 200px;">Немає фото</div>
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ flower.name }}</h5>
+                    <p class="card-text">Ціна: {{ flower.price }} грн</p>
+                    <p class="card-text"><small>{{ flower.tags }}</small></p>
+                    <a href="{{ url_for('edit_flower', flower_id=flower.id) }}" class="btn btn-primary btn-sm">Редагувати</a>
+                    <a href="{{ url_for('delete_flower', flower_id=flower.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Видалити букет?')">Видалити</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>
