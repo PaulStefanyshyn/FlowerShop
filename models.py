@@ -30,7 +30,7 @@ class Flower(db.Model):
 
 class Image(db.Model):
     __tablename__ = "Images"
-    id = db.Column(db.Integer, primary_key=True)  # простіше назвати id
+    id = db.Column(db.Integer, primary_key=True)
     imgPath = db.Column(db.String(255))
     flower_id = db.Column(db.Integer, db.ForeignKey("Flowers.id"), nullable=False)
 
