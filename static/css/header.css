@@ -12,7 +12,7 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .logo svg {
@@ -25,7 +25,7 @@ header {
     flex-direction: row;
     justify-content: space-around;
     gap: 20px;
-    padding-top: 35px;
+    /* padding-top: 35px; */
 }
 
 .navbar a {
@@ -34,6 +34,7 @@ header {
     font-size: 28px;
     font-family: 'Montserrat';
     font-weight: 300;
+    color: #450000;
 }
 
 .burger {
@@ -88,6 +89,10 @@ header {
 }
 
 @media (max-width: 800px) {
+    .header-menu {
+        align-items: flex-start;
+    }
+
     .logo svg {
         width: 8rem;
     }

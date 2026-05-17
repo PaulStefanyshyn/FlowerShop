@@ -55,6 +55,11 @@ footer p {
     font-weight: 700;
 }
 
+.map a{
+    color: #450000;
+
+}
+
 
 @media (max-width: 800px) {
     footer {

@@ -231,7 +231,9 @@ def save_data():
     session["product"] = {
         "name": data.get("name"),
         "price": data.get("price"),
-        "count": data.get("count")
+        "count": data.get("count"),
+        "img": data.get("img"),
+        "tags": data.get("tags")
     }
 
     return jsonify({"success": True})
