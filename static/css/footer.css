@@ -8,6 +8,16 @@ footer p {
     font-size: 20px;
 }
 
+.smm {
+    text-align: center;
+    font-size: 14px;
+    width: 100%;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .footer-home {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -55,7 +65,7 @@ footer p {
     font-weight: 700;
 }
 
-.map a{
+.map a {
     color: #450000;
 
 }
@@ -67,6 +77,10 @@ footer p {
     }
 
     footer p {
+        font-size: 10px;
+    }
+
+    .smm {
         font-size: 10px;
     }
 
