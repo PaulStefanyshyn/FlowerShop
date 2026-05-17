@@ -238,6 +238,20 @@ def save_data():
 
     return jsonify({"success": True})
 
+@app.route("/save-order", methods=["POST"])
+def save_order():
+    data = request.get_json()
+
+    session["product"] = {
+        "name": data.get("name"),
+        "price": data.get("price"),
+        "count": data.get("count"),
+        "user": data.get("user"),
+        "phone": data.get("phone")
+    }
+
+    return jsonify({"success": True})
+
 
 @app.route("/bouquets")
 def bouquets():
