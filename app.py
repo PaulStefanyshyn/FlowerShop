@@ -3,10 +3,10 @@ from flask import Flask, render_template, request, redirect, session, jsonify
 from config import Config
 from database.db import db
 from models import Client, Flower, Image
-# from database.crud import (
-#     create_client,
-#     get_all_clients
-# )
+from crud import (
+    create_client,
+    get_all_clients
+)
 import uuid
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
@@ -206,10 +206,12 @@ def uploaded_file(filename):
 
 @app.route("/")
 def index():
-    # clients = get_all_clients()
+    clients = Client.query.all()
+    print(clients)
 
     return render_template(
-        "home.html"
+        "home.html",
+        clients=clients
     )
 
 
@@ -237,6 +239,23 @@ def save_data():
     }
 
     return jsonify({"success": True})
+
+@app.route("/save-order", methods=["POST"])
+def save_order():
+    data = request.get_json()
+
+    session["product"] = {
+        "name": data.get("name"),
+        "price": data.get("price"),
+        "count": data.get("count"),
+        "user": data.get("user"),
+        "phone": data.get("phone")
+    }
+
+    return jsonify({"success": True})
+
+
+
 
 @app.route("/save-order", methods=["POST"])
 def save_order():
