@@ -3,6 +3,9 @@ document.querySelectorAll('.card').forEach(card => {
     const countEl = card.querySelector('.count');
     const name = card.querySelector('h1');
     const price = card.querySelector('h2');
+    const img = card.querySelector('img');
+    const tags = Array.from(card.querySelectorAll('.tags p'))
+        .map(tag => tag.textContent);
     const order_button = card.querySelector('.order-button');
 
     const start_price = Number(price.textContent);
@@ -19,28 +22,32 @@ document.querySelectorAll('.card').forEach(card => {
 
         price.textContent = Number(countEl.textContent) * start_price;
 
-        order_button.addEventListener("click", async function () {
-            const data = {
-                name: name.textContent,
-                price: Number(price.textContent),
-                count: Number(countEl.textContent)
-            };
+    });
 
-            const response = await fetch("/save-data", {
-                method: "POST",
-                headers: {
+    order_button.addEventListener("click", async function (e) {
+        e.preventDefault();
+
+        const data = {
+            name: name.textContent,
+            price: Number(price.textContent),
+            count: Number(countEl.textContent),
+            img: img.src,
+            tags: tags
+        };
+
+        const response = await fetch("/save-data", {
+            method: "POST",
+            headers: {
                 "Content-Type": "application/json"
-                },
-                body: JSON.stringify(data)
-            });
-
-            const result = await response.json();
-
-            if (result.success) {
-                window.location.href = "/bouquets";
-            }
+            },
+            body: JSON.stringify(data)
         });
 
+        const result = await response.json();
+
+        if (result.success) {
+            window.location.href = "/bouquets";
+        }
     });
 
 });

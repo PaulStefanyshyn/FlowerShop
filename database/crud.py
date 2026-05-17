@@ -1,5 +1,5 @@
 from database.db import db
-from database.models import Client
+from models import Client
 
 
 def create_client(name, number, bouquet, order_count):
