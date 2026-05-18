@@ -93,25 +93,9 @@ section h1 {
     font-size: 24px;
     text-transform: uppercase;
     position: relative;
-    margin-top: 0;
+    margin-top: 10px;
     font-weight: 200;
 }
-
-.home h2::after {
-    content: "";
-    position: absolute;
-
-    left: 50%;
-    transform: translateX(-50%);
-
-    bottom: -5px;
-
-    width: 30%;
-    height: 1px;
-
-    background: #450000;
-}
-
 
 
 .bouquets,
